@@ -1,7 +1,7 @@
 // app/providers.tsx
 "use client"
 
-import { NextUIProvider } from "@nextui-org/react"
+import { type ThemeProviderProps } from "next-themes/dist/types"
 import dynamic from "next/dynamic"
 
 import { ThemeProvider as StaticProvider } from "next-themes"
@@ -12,14 +12,8 @@ const DynProvider = dynamic(
   },
 )
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children, ...props }: ThemeProviderProps) {
   const NextThemeProvider =
     process.env.NODE_ENV === "production" ? StaticProvider : DynProvider
-  return (
-    <NextUIProvider>
-      <NextThemeProvider attribute="class" defaultTheme="dark">
-        {children}
-      </NextThemeProvider>
-    </NextUIProvider>
-  )
+  return <NextThemeProvider {...props}>{children}</NextThemeProvider>
 }

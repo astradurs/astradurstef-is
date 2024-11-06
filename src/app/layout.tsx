@@ -1,4 +1,3 @@
-import { Flex, Theme } from "@radix-ui/themes"
 import "@radix-ui/themes/styles.css"
 import type { Metadata } from "next"
 import Header from "./components/header"
@@ -21,14 +20,14 @@ export default function RootLayout({
       suppressHydrationWarning={process.env.NODE_ENV === "production"}
     >
       <body>
-        <Providers>
-          <Theme>
-            <Flex direction="column" height="100vh" justify="between">
-              <Header />
-              {children}
-              <footer>I am footer</footer>
-            </Flex>
-          </Theme>
+        <Providers
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
         </Providers>
       </body>
     </html>
