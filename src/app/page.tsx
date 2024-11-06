@@ -9,7 +9,6 @@ export default function Page() {
       <Grid gap="4">
         <Heading align="center">Breytingar í gangi</Heading>
         <Text align="center">Ekkert að sjá hér</Text>
-
         <Image alt="Nothing to see here" src={nothingToSeeHereImg} />
       </Grid>
     </Flex>
