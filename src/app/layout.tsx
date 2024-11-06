@@ -26,8 +26,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
+          <main className="h-screen w-full p-2.5">
+            <div className="mx-auto min-h-full max-w-5xl">
+              <Header />
+              {children}
+            </div>
+          </main>
         </Providers>
       </body>
     </html>

@@ -1,23 +1,37 @@
 "use client"
 
-import { Flex, TabNav } from "@radix-ui/themes"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ThemeSwitcher } from "./theme-switcher"
+
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils"
 
 export default function Header() {
   const pathname = usePathname()
   const isHome = pathname === "/"
   return (
-    <Flex justify="between">
-      <Flex>
-        <TabNav.Root>
-          <TabNav.Link href="/" active={isHome}>
-            Heim
-          </TabNav.Link>
-        </TabNav.Root>
-      </Flex>
-
+    <div className="flex justify-between">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <span className={cn(isHome ? "border-b-2 border-primary" : "")}>
+                  Home
+                </span>
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
       <ThemeSwitcher />
-    </Flex>
+    </div>
   )
 }
