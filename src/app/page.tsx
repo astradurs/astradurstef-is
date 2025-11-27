@@ -7,7 +7,7 @@ export default function Page() {
     <div className="flex flex-col items-center gap-2">
       <div className="flex flex-col justify-center">
         <h1 className="text-center">Breytingar í gangi</h1>
-        <span className="text-center">ekkert að sjá hér</span>
+        <span className="text-center">ekkert að sjá hér!!</span>
       </div>
       <Image alt="Nothing to see here" src={nothingToSeeHereImg} />
     </div>
